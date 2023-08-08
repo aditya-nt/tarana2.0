@@ -1,4 +1,5 @@
-import React from "react";
+import { noop } from '@babel/types';
+import React from 'react';
 
 interface FormInputProps {
   label: string;
@@ -6,18 +7,14 @@ interface FormInputProps {
   placeholder: string;
   register: any;
   error: any;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormInput: React.FC<FormInputProps> = ({ label, type, placeholder, register, error }) => {
+const FormInput: React.FC<FormInputProps> = ({ label, type, placeholder, register, error, onChange = noop }) => {
   return (
-    <div className="mb-3">
+    <div style={{ width: '100%' }}>
       <label>{label}</label>
-      <input
-        type={type}
-        className="form-control"
-        {...register}
-        placeholder={placeholder}
-      />
+      <input type={type} className="form-control" {...register} placeholder={placeholder} onChange={onChange} />
       {error && <p className="text-danger">{error.message}</p>}
     </div>
   );

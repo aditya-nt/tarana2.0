@@ -1,24 +1,27 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Card } from "react-bootstrap";
-import * as yup from "yup";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Card } from 'react-bootstrap';
+import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FormInput from "../../base/FormInput";
-import FormButton from "../../base/Button";
-
+import FormInput from '../../base/FormInput';
+import FormButton from '../../base/Button';
 
 interface SignUpFormProps {
   onSubmit: (data: { name: string; email: string; password: string }) => void;
 }
 
 const schema = yup.object().shape({
-  name: yup.string().required("Name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup.string().required("Password is required"),
+  name: yup.string().required('Name is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  password: yup.string().required('Password is required'),
 });
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
-  const { handleSubmit, formState: { errors }, ...methods } = useForm({
+  const {
+    handleSubmit,
+    formState: { errors },
+    ...methods
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -34,21 +37,21 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
           label="Name"
           type="text"
           placeholder="Name"
-          register={methods.register("name")}
+          register={methods.register('name')}
           error={errors.name}
         />
         <FormInput
           label="Email address"
           type="email"
           placeholder="Email"
-          register={methods.register("email")}
+          register={methods.register('email')}
           error={errors.email}
         />
         <FormInput
           label="Password"
           type="password"
           placeholder="Enter password"
-          register={methods.register("password")}
+          register={methods.register('password')}
           error={errors.password}
         />
         <div className="d-grid">
