@@ -7,7 +7,6 @@ import { Dispatch } from 'redux';
 import AudioPlayer from '../../components/custom/AudioPlayer';
 import FormInput from '../../components/base/FormInput';
 import { getSongs } from './helper';
-import { HStack, VStack } from '../../components/shared/AppStyles';
 import { PAGE_LIMIT } from '../../lib/constants';
 
 const HomePage = () => {
