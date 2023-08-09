@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
-import { fakeAuthProvider } from "../lib/utils/auth";
-
+import React, { createContext, useContext, useState } from 'react';
+import { fakeAuthProvider } from '../lib/utils/auth';
 
 interface AuthContextType {
   user: string | null;
@@ -39,7 +38,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 function useAuth() {
   const context = useContext(AuthContext);
   if (context === null) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 }

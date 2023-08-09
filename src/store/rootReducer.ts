@@ -1,12 +1,11 @@
-// store/rootReducer.ts
 import { combineReducers } from '@reduxjs/toolkit';
 
-import authReducer from './auth/authSlice';
 import playlistReducer from './playlists/playlistSlice';
+import tracksReducer from './tracks/tracksSlice';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
   playlists: playlistReducer,
+  tracks: tracksReducer,
 });
 
 export default rootReducer;
