@@ -2,9 +2,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FormInput from '../../base/FormInput';
-import FormButton from '../../base/Button';
-import { StyledCard, VStack } from '../AppStyles';
+import FormInput from '@/components/base/FormInput';
+import FormButton from '@/components/base/Button';
+import { StyledCard, VStack } from '@/components/shared/AppStyles';
+
 
 interface LoginFormProps {
   onSubmit: (data: { email: string; password: string }) => void;

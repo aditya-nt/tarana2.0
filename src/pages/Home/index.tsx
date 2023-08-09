@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import SongContainer from '../../components/custom/SongContainer';
+import SongContainer from '@/components/custom/SongContainer';
 import { Col, Container, Row } from 'react-bootstrap';
-import { setActiveTrack, setTracks } from '../../store/tracks/tracksSlice';
+import { setActiveTrack, setTracks } from '@/store/tracks/tracksSlice';
 import { Dispatch } from 'redux';
-import AudioPlayer from '../../components/custom/AudioPlayer';
-import FormInput from '../../components/base/FormInput';
-import { getSongs } from './helper';
-import { PAGE_LIMIT } from '../../lib/constants';
+import AudioPlayer from '@/components/custom/AudioPlayer';
+import FormInput from '@/components/base/FormInput';
+import { getSongs } from '@/pages/Home/helper';
+import { PAGE_LIMIT } from '@/lib/constants';
 
 const HomePage = () => {
   const dispatch: Dispatch = useDispatch();

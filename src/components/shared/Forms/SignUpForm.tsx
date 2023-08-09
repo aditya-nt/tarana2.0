@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Card } from 'react-bootstrap';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FormInput from '../../base/FormInput';
-import FormButton from '../../base/Button';
+import FormInput from '@/components/base/FormInput';
+import FormButton from '@/components/base/Button';
 
 interface SignUpFormProps {
   onSubmit: (data: { name: string; email: string; password: string }) => void;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { HStack } from '../AppStyles';
+
+import { HStack } from "@/components/shared/AppStyles";
 import { Link } from 'react-router-dom';
-import AuthStatus from '../../custom/AuthStatus';
+import AuthStatus from '@/components/custom/AuthStatus';
 
 const Header: React.FC = () => {
   return (

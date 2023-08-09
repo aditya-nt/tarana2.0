@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginForm from '../../components/shared/Forms/LoginForm';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
+import LoginForm from '@/components/shared/Forms/LoginForm';
 
 const LoginPage = () => {
   const navigate = useNavigate();

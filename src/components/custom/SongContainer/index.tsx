@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Card } from 'react-bootstrap';
 import React from 'react';
-import { setCurrentTrack } from '../../../store/tracks/tracksSlice';
+import { setCurrentTrack } from '@/store/tracks/tracksSlice';
 
 interface SongCardProps {
   track: Track;

@@ -2,13 +2,15 @@ import React, { ReactNode, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Play, Pause, StepBack, StepForward } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  nextTrack,
+import { 
+    nextTrack,
   previousTrack,
-  setCurrentTrack,
-  setPlayingStatus,
   togglePlaying,
-} from '../../../store/tracks/tracksSlice';
+ } from '@/store/tracks/tracksSlice';
+
+
+
+
 
 interface SongCardProps {
   song: Track | null;

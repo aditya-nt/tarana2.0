@@ -1,7 +1,7 @@
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import FormButton from '../../base/Button';
-import { HStack, StyledFiller, StyledHeading4, StyledHeading5W, VStack } from '../../shared/AppStyles';
+import FormButton from '@/components/base/Button';
+import { HStack, StyledFiller, StyledHeading4, StyledHeading5W, VStack } from '@/components/shared/AppStyles';
 import React from 'react';
 
 interface AuthStatusProps {

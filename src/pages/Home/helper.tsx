@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PAGE_LIMIT } from '../../lib/constants';
+import { PAGE_LIMIT } from '@/lib/constants';
 
 interface Song {
   artistName: string;

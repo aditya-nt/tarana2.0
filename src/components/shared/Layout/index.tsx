@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import { Container, VStack } from '../AppStyles';
-import Header from '../Header';
-import Footer from '../Footer';
+import { Container, VStack } from '@/components/shared/AppStyles';
+
+import Header from '@/components/shared/Header';
+import Footer from '@/components/shared/Footer';
 import React from 'react';
 
 function Layout() {
