@@ -7,6 +7,19 @@ declare interface Song {
   artworkUrl100: string;
 }
 
+declare interface SongsResponse {
+  results: Song[];
+}
+
+declare interface SongsState {
+  songs: Song[];
+  loading: boolean;
+  error: string | null;
+  activeSong: Song | null;
+  isPlaying: boolean;
+  index: number;
+}
+
 declare interface Track {
   id: string;
   imageUrl: string;

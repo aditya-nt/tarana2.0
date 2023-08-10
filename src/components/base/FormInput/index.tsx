@@ -5,8 +5,8 @@ interface FormInputProps {
   label: string;
   type: string;
   placeholder: string;
-  register: any;
-  error: any;
+  register?: any;
+  error?: any;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

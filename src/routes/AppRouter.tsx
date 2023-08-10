@@ -3,7 +3,7 @@ import Layout from '@/components/shared/Layout';
 import PrivateRoute from '@/routes/PrivateRoute';
 import DashboardPage from '@/pages/DashboardPage';
 import LoginPage from '@/pages/LoginPage';
-import HomePage from '@/pages/Home';
+import HomePage from '@/pages/HomePage';
 import React from 'react';
 
 function AppRouter() {
@@ -12,6 +12,7 @@ function AppRouter() {
       <Route element={<Layout />}>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route
           path="/player"
           element={

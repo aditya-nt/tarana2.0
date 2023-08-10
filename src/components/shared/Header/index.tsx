@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HStack } from "@/components/shared/AppStyles";
+import { HStack } from '@/components/shared/AppStyles';
 import { Link } from 'react-router-dom';
 import AuthStatus from '@/components/custom/AuthStatus';
 

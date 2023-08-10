@@ -1,46 +1,45 @@
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useDispatch, useSelector } from 'react-redux';
 import { Row, Card } from 'react-bootstrap';
-import React from 'react';
-import { setCurrentTrack } from '@/store/tracks/tracksSlice';
+import { setCurrentSong } from '@/store/songs/SongSlice';
 
 interface SongCardProps {
-  track: Track;
+  song: Song;
   onClick: () => void;
 }
 
 function SongCard(songDetails: SongCardProps) {
-  const { track, onClick } = songDetails;
+  const { song, onClick } = songDetails;
+
   return (
     <Card style={{ width: '14rem', padding: '0px' }} onClick={onClick}>
-      <Card.Img variant="top" src={track.imageUrl} height={'200rem'} />
+      <Card.Img variant="top" src={song.artworkUrl100} height={'200rem'} />
       <Card.Body>
-        <Card.Title>{track.name}</Card.Title>
-        <Card.Text>{track.artistName}</Card.Text>
+        <Card.Title>{song.trackCensoredName}</Card.Title>
+        <Card.Text>{song.artistName}</Card.Text>
       </Card.Body>
     </Card>
   );
 }
 
 const SongContainer = () => {
-  const { activeTrack, error, isPlaying, loading, tracks, index } = useSelector(
-    (state: { tracks: TracksState }) => state.tracks,
+  const { activeSong, error, isPlaying, loading, songs, index } = useSelector(
+    (state: { songs: SongsState }) => state.songs, // Adjust the state type accordingly
   );
   const dispatch = useDispatch();
 
+  console.table(songs);
   return (
-    <div className="no-scroll" style={{ height: '50rem' }}>
-      <Row className="no-scroll-content" style={{ gap: '1rem' }}>
-        {tracks.map((track, index) => (
-          <SongCard
-            track={track}
-            key={index + 1 * Math.random()}
-            onClick={() => {
-              dispatch(setCurrentTrack({ currentIndex: index }));
-            }}
-          />
-        ))}
-      </Row>
-    </div>
+    <>
+      {songs.map((song, index) => (
+        <SongCard
+          song={song}
+          key={index + 1 * Math.random()}
+          onClick={() => {
+            dispatch(setCurrentSong({ currentIndex: index }));
+          }}
+        />
+      ))}
+    </>
   );
 };
 

@@ -2,15 +2,7 @@ import React, { ReactNode, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Play, Pause, StepBack, StepForward } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    nextTrack,
-  previousTrack,
-  togglePlaying,
- } from '@/store/tracks/tracksSlice';
-
-
-
-
+import { nextSong, previousSong, togglePlaying } from '@/store/songs/SongSlice';
 
 interface SongCardProps {
   song: Track | null;
@@ -39,11 +31,11 @@ const AudioPlayer = () => {
   const dispatch = useDispatch();
 
   const handleNext = () => {
-    dispatch(nextTrack());
+    dispatch(nextSong());
   };
 
   const handlePrevious = () => {
-    dispatch(previousTrack());
+    dispatch(previousSong());
   };
 
   const togglePlayback = () => {

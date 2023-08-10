@@ -6,7 +6,6 @@ import FormInput from '@/components/base/FormInput';
 import FormButton from '@/components/base/Button';
 import { StyledCard, VStack } from '@/components/shared/AppStyles';
 
-
 interface LoginFormProps {
   onSubmit: (data: { email: string; password: string }) => void;
 }

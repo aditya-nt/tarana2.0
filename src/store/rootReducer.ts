@@ -1,11 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import playlistReducer from '@/store/playlists/playlistSlice';
-import tracksReducer from '@/store/tracks/tracksSlice';
+import songReducer from '@/store/songs/SongSlice';
 
 const rootReducer = combineReducers({
-  playlists: playlistReducer,
-  tracks: tracksReducer,
+  songs: songReducer,
 });
 
 export default rootReducer;

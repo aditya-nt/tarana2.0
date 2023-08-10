@@ -1,16 +1,16 @@
 export const PAGE_LIMIT = 9;
 
 export const ROUTES = {
-  HOME: "/",
-  ERROR_FILE_NOT_FOUND: "/404",
-  LOGIN: "/login",
-  DASHBOARD: "/dashboard",
+  HOME: '/',
+  ERROR_FILE_NOT_FOUND: '/404',
+  LOGIN: '/login',
+  DASHBOARD: '/dashboard',
 };
 
 export const TOAST_TYPES = {
-  SUCCESS: "success",
-  ERROR: "error",
-  DEFAULT: "default",
+  SUCCESS: 'success',
+  ERROR: 'error',
+  DEFAULT: 'default',
 };
 
 export const TOAST_DURATION = {
