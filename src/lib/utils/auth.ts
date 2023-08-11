@@ -1,16 +1,16 @@
 import Cookies from 'js-cookie';
 import { ACCESS_TOKEN } from '../constants';
 
-function getAccessToken(){
+function getAccessToken() {
   return Cookies.get(ACCESS_TOKEN);
 }
 
-function setAccessToken(accessToken: string){
+function setAccessToken(accessToken: string) {
   Cookies.set(ACCESS_TOKEN, accessToken);
 }
 
-function removeAccessToken(){
-  Cookies.remove(ACCESS_TOKEN); 
+function removeAccessToken() {
+  Cookies.remove(ACCESS_TOKEN);
 }
 
 const fakeAuthProvider = {
@@ -22,7 +22,7 @@ const fakeAuthProvider = {
     }, 100);
   },
   signout(callback: VoidFunction) {
-    removeAccessToken()
+    removeAccessToken();
     setTimeout(() => {
       callback();
     }, 100);

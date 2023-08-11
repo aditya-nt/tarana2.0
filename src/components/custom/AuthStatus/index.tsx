@@ -38,13 +38,11 @@ function AuthStatus({ header = false }: AuthStatusProps) {
     <HStack.rowg1>
       {header ? (
         <>
-          <StyledHeading5W>Welcome {user}!</StyledHeading5W>
           <FormButton label="LogOut" type="button" variant="secondary" onClick={handleLogOut} />
         </>
       ) : (
         <div>
           <StyledFiller />
-          <StyledHeading4>Welcome {user}!</StyledHeading4>
           <Link to="/player">Play Music</Link>
         </div>
       )}

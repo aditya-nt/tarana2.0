@@ -21,6 +21,7 @@ function AppRouter() {
             </PrivateRoute>
           }
         />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={!!user ? <Navigate to="/" /> : <LoginPage />} />
       </Route>
     </Routes>

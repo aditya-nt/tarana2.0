@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import LoginForm from '@/components/shared/Forms/LoginForm';
+import { HStack, VStack } from '@/components/shared/AppStyles';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,11 @@ const LoginPage = () => {
     });
   };
 
-  return <LoginForm onSubmit={handleSubmit} />;
+  return (
+    <HStack.fullFlex style={{ justifyContent: 'center' }}>
+      <LoginForm onSubmit={handleSubmit} />
+    </HStack.fullFlex>
+  );
 };
 
 export default LoginPage;

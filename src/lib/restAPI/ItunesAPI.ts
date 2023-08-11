@@ -1,5 +1,5 @@
 import { makeAPIRequest } from '.';
-import { PAGE_LIMIT } from '../constants';
+import { PAGE_LIMIT } from '@/lib/constants';
 
 interface GetSongsListAPIProps {
   term?: string;

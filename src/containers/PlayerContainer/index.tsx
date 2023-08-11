@@ -23,15 +23,13 @@ const PlayerContainer = () => {
     <Container>
       <Row>
         <Col>
-          {activeSong && (
-            <AudioPlayer
-              isPlaying={isPlaying}
-              activeSong={activeSong}
-              handleNext={handleNext}
-              handlePrevious={handlePrevious}
-              togglePlay={togglePlay}
-            />
-          )}
+          <AudioPlayer
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            togglePlay={togglePlay}
+          />
         </Col>
       </Row>
     </Container>

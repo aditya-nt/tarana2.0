@@ -1,7 +1,7 @@
 import { DEFAULT_SEARCH, PAGE_LIMIT } from '@/lib/constants';
 import { getSongsListAPI } from '@/lib/restAPI/ItunesAPI';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 interface APIResponse {
   resultCount: number;
@@ -21,23 +21,31 @@ export const getSongs = async (
     return { data: null, error: 'An error occurred while fetching songs.' };
   }
 };
-
 export const useSongs = (searchTerm: string = DEFAULT_SEARCH) => {
+  const [offset, setOffset] = useState<number>(9);
+
   const { data, error, fetchNextPage, status, hasNextPage } = useInfiniteQuery(
     [`songs:${searchTerm}`],
-    ({ pageParam = 1 }) => getSongs(searchTerm, pageParam * PAGE_LIMIT, PAGE_LIMIT),
+    ({ pageParam }) => getSongs(searchTerm, pageParam || offset, PAGE_LIMIT),
     {
       getNextPageParam: (lastPage) => {
         const songsData = lastPage.data;
         if (songsData && songsData.resultCount < PAGE_LIMIT) {
           return null;
         }
-        return (lastPage?.data ? lastPage.data.results.length : 0) + 1;
+        return offset + (lastPage.data ? lastPage.data.results.length : 0);
       },
     },
   );
 
   const songs = useMemo(() => data?.pages?.flatMap((page) => page.data?.results), [data]);
+
+  useEffect(() => {
+    if (data) {
+      const totalFetchedResults = data.pages.reduce((total, page) => total + (page.data?.results.length || 0), 0);
+      setOffset(totalFetchedResults);
+    }
+  }, [data]);
 
   return {
     error,
@@ -47,13 +55,4 @@ export const useSongs = (searchTerm: string = DEFAULT_SEARCH) => {
     songs,
     data,
   };
-};
-
-export const Loading = () => {
-  return (
-    <div className="container-loading">
-      <div className="spinner"></div>
-      <span>Loading more songs...</span>
-    </div>
-  );
 };
