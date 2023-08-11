@@ -1,7 +1,7 @@
-import { useAuth } from '../../../contexts/AuthContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import FormButton from '../../base/Button';
-import { HStack, StyledFiller, StyledHeading4, StyledHeading5W, VStack } from '../../shared/AppStyles';
+import FormButton from '@/components/base/Button';
+import { HStack, StyledFiller, StyledHeading4, StyledHeading5W, VStack } from '@/components/shared/AppStyles';
 import React from 'react';
 
 interface AuthStatusProps {
@@ -9,7 +9,7 @@ interface AuthStatusProps {
 }
 
 function AuthStatus({ header = false }: AuthStatusProps) {
-  const auth = useAuth();
+  const { user, signout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -17,10 +17,10 @@ function AuthStatus({ header = false }: AuthStatusProps) {
   };
 
   const handleLogOut = () => {
-    auth.signout(() => navigate('/'));
+    signout(() => navigate('/'));
   };
 
-  if (!auth.user) {
+  if (!user) {
     return header ? (
       <HStack.rowg1>
         <FormButton label="LogIn" type="button" variant="danger" onClick={handleLogin} />
@@ -38,13 +38,11 @@ function AuthStatus({ header = false }: AuthStatusProps) {
     <HStack.rowg1>
       {header ? (
         <>
-          <StyledHeading5W>Welcome {auth.user}!</StyledHeading5W>
           <FormButton label="LogOut" type="button" variant="secondary" onClick={handleLogOut} />
         </>
       ) : (
         <div>
           <StyledFiller />
-          <StyledHeading4>Welcome {auth.user}!</StyledHeading4>
           <Link to="/player">Play Music</Link>
         </div>
       )}

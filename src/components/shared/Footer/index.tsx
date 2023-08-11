@@ -1,6 +1,6 @@
 // components/shared/Footer.tsx
 import React from 'react';
-import { HStack, StyledSpan } from '../AppStyles';
+import { HStack, StyledSpan } from '@/components/shared/AppStyles';
 
 const Footer: React.FC = () => {
   return (

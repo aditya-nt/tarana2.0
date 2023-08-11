@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
-import { fakeAuthProvider } from '../lib/utils/auth';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { fakeAuthProvider } from '@/lib/utils/auth';
 
 interface AuthContextType {
   user: string | null;
@@ -16,8 +16,12 @@ interface AuthProviderProps {
 function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<string | null>(null);
 
+  const isSignedIn = () => {
+    if (fakeAuthProvider.hasAccess) setUser(fakeAuthProvider.hasAccess);
+  };
+
   const signin = (newUser: string, callback: VoidFunction) => {
-    return fakeAuthProvider.signin(() => {
+    return fakeAuthProvider.signin(newUser, () => {
       setUser(newUser);
       callback();
     });
@@ -29,6 +33,10 @@ function AuthProvider({ children }: AuthProviderProps) {
       callback();
     });
   };
+
+  useEffect(() => {
+    isSignedIn();
+  }, []);
 
   const value: AuthContextType = { user, signin, signout };
 

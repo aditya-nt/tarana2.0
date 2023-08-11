@@ -1,17 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import { Container, VStack } from '../AppStyles';
-import Header from '../Header';
-import Footer from '../Footer';
+import { Container, VStack } from '@/components/shared/AppStyles';
+
+import Header from '@/components/shared/Header';
 import React from 'react';
 
 function Layout() {
   return (
     <VStack.colg2>
       <Header />
-      <Container>
-        <Outlet />
-      </Container>
-      <Footer />
+      <Outlet />
     </VStack.colg2>
   );
 }

@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-gaana-orange-orange-1: #ffefe8;
+  --color-gaana-orange-orange-7: #ab2f00;
+  --color-gaana-orange-orange-6: #e43f00;
+  --color-gaana-orange-orange-4: #ff8d62;
+  --color-gaana-orange-orange-8: #721f00;
+  --color-gaana-orange-orange-5: #f05423;
+  --color-gaana-orange-orange-9: #561800;
+  --color-gaana-orange-orange-2: #ffcebc;
+  --color-gaana-orange-orange-3: #ffae8f;
+  --color-gaana-orange-orange-10: #391000;
+}
+
+#root {
+  font: 400 14px 'Inter';
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
