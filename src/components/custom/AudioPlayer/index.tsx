@@ -6,6 +6,7 @@ import SongInfo from '@/components/custom/SongInfo';
 
 const AudioPlayerContainer = styled(Container)`
   padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 const ControlButton = styled(Button)`
