@@ -11,7 +11,7 @@ interface SongCardProps {
 
 function SongInfo({ song, onClick = noop, children }: SongCardProps) {
   return song ? (
-    <SongContainer>
+    <SongContainer >
       <Img src={song.artworkUrl100.replace('100x100', '600x600')} alt={song.trackCensoredName}></Img>
       <H1>{song.trackCensoredName}</H1>
       <H2>{song.artistName}</H2>
@@ -26,7 +26,8 @@ function SongInfo({ song, onClick = noop, children }: SongCardProps) {
 }
 
 const SongContainer = styled.div`
-  margin-top: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
   min-height: 50vh;
   max-height: 60vh;
   display: flex;
@@ -58,10 +59,12 @@ const Img = styled.img`
 `;
 
 const H1 = styled.h2`
+  text-align: center;
   padding: 3rem 1rem 1rem 1rem;
 `;
 
 const H2 = styled.h3`
+  text-align: center;
   font-size: 1rem;
 `;
 
