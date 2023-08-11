@@ -1,4 +1,4 @@
-import { PAGE_LIMIT } from '@/lib/constants';
+import { DEFAULT_SEARCH, PAGE_LIMIT } from '@/lib/constants';
 import { getSongsListAPI } from '@/lib/restAPI/ItunesAPI';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
@@ -22,12 +22,11 @@ export const getSongs = async (
   }
 };
 
-export const useSongs = (searchTerm: string) => {
+export const useSongs = (searchTerm: string = DEFAULT_SEARCH) => {
   const { data, error, fetchNextPage, status, hasNextPage } = useInfiniteQuery(
     [`songs:${searchTerm}`],
     ({ pageParam = 1 }) => getSongs(searchTerm, pageParam * PAGE_LIMIT, PAGE_LIMIT),
     {
-      enabled: searchTerm !== '',
       getNextPageParam: (lastPage) => {
         const songsData = lastPage.data;
         if (songsData && songsData.resultCount < PAGE_LIMIT) {

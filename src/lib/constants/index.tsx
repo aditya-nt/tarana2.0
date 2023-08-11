@@ -1,5 +1,9 @@
 export const PAGE_LIMIT = 9;
 
+export const DEFAULT_SEARCH = 'Hits';
+
+export const ACCESS_TOKEN = 'ACCESS_TOKEN';
+
 export const ROUTES = {
   HOME: '/',
   ERROR_FILE_NOT_FOUND: '/404',

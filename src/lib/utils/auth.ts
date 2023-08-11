@@ -1,12 +1,31 @@
+import Cookies from 'js-cookie';
+import { ACCESS_TOKEN } from '../constants';
+
+function getAccessToken(){
+  return Cookies.get(ACCESS_TOKEN);
+}
+
+function setAccessToken(accessToken: string){
+  Cookies.set(ACCESS_TOKEN, accessToken);
+}
+
+function removeAccessToken(){
+  Cookies.remove(ACCESS_TOKEN); 
+}
+
 const fakeAuthProvider = {
-  isAuthenticated: false,
-  signin(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = true;
-    setTimeout(callback, 100);
+  hasAccess: getAccessToken(),
+  signin(accessToken: string, callback: VoidFunction) {
+    setAccessToken(accessToken);
+    setTimeout(() => {
+      callback();
+    }, 100);
   },
   signout(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = false;
-    setTimeout(callback, 100);
+    removeAccessToken()
+    setTimeout(() => {
+      callback();
+    }, 100);
   },
 };
 

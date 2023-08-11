@@ -4,15 +4,16 @@ import { Col, Container, Row } from 'react-bootstrap';
 import FormInput from '@/components/base/FormInput';
 import { Loading, useSongs } from '@/pages/HomePage/helper';
 import { useDebouncedCallback } from 'use-debounce';
-import SongContainer from '@/components/custom/SongContainer';
+import SongContainer from '@/containers/SongContainer';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { setSongs } from '@/store/songs/SongSlice';
 import { filterUndefined } from '@/lib/utils/sanitize';
-import AudioPlayer from '@/components/custom/AudioPlayer';
+import { DEFAULT_SEARCH } from '@/lib/constants';
+import PlayerContainer from '@/containers/PlayerContainer';
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState<string>('ed');
+  const [searchTerm, setSearchTerm] = useState<string>(DEFAULT_SEARCH);
 
   const debouncedSearch = useDebouncedCallback((value: string) => {
     setSearchTerm(value);
@@ -54,7 +55,7 @@ const HomePage: React.FC = () => {
           </InfiniteScroll>
         </Col>
         <Col lg={5}>
-          <AudioPlayer />
+            <PlayerContainer/>
         </Col>
       </Row>
     </Container>

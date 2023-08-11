@@ -7,12 +7,12 @@ interface PrivateRouteProps {
 }
 
 function PrivateRoute({ children }: PrivateRouteProps) {
-  const auth = useAuth();
+  const { user } = useAuth();
   const location = useLocation();
 
-  // if (!(auth as any).user) {
-  //   return <Navigate to="/login" state={{ from: location }} replace />;
-  // }
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
   return children;
 }

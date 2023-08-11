@@ -33,6 +33,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "eslint-config-react-app": "^7.0.1",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "lucide-react": "^0.264.0",
     "material-react-toastify": "^2.0.1",
@@ -53,6 +54,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.197",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "^9.0.2",

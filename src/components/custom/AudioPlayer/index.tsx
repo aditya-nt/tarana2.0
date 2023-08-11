@@ -3,40 +3,27 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Play, Pause, StepBack, StepForward } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nextSong, previousSong, togglePlaying } from '@/store/songs/SongSlice';
+import SongCard from '../SongCard';
 
-interface SongCardProps {
-  song: Track | null;
-  children?: ReactNode;
+interface AudioPlayerProps {
+  isPlaying : boolean;
+  activeSong : Song;
+  handleNext : () => void;
+  handlePrevious : () => void;
+  togglePlay : () => void;
 }
 
-function SongCard(songDetails: SongCardProps) {
-  const { song, children } = songDetails;
-  return (
-    <Card style={{ width: '100%', padding: '0px', height: '100%' }}>
-      <Card.Img variant="top" src={song?.imageUrl} height={'450rem'} />
-      <Card.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Card.Title>{song?.name}</Card.Title>
-        <Card.Text>{song?.artistName}</Card.Text>
-        {children}
-      </Card.Body>
-    </Card>
-  );
-}
-
-const AudioPlayer = () => {
-  const { activeTrack, isPlaying } = useSelector((state: { tracks: TracksState }) => state.tracks);
+const AudioPlayer = ({isPlaying, activeSong, handleNext , handlePrevious, togglePlay} : AudioPlayerProps) => {
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const dispatch = useDispatch();
+  const nextHandler = () => {
+    handleNext()
+  }
 
-  const handleNext = () => {
-    dispatch(nextSong());
-  };
-
-  const handlePrevious = () => {
-    dispatch(previousSong());
-  };
+  const prevHandler = () => {
+    handlePrevious()
+  }
 
   const togglePlayback = () => {
     if (audioRef.current) {
@@ -48,21 +35,17 @@ const AudioPlayer = () => {
     }
   };
 
-  const togglePlay = () => {
-    dispatch(togglePlaying());
-  };
-
   useEffect(() => {
     togglePlayback();
-  }, [isPlaying, activeTrack?.audioUrl]);
+  }, [isPlaying, activeSong?.previewUrl]);
 
   return (
     <Container>
       <Row>
         <Col>
-          <SongCard song={activeTrack}>
+          <SongCard song={activeSong} >
             <div>
-              <Button variant="link" onClick={handlePrevious}>
+              <Button variant="link" onClick={prevHandler}>
                 <StepBack />
               </Button>
               {isPlaying ? (
@@ -74,10 +57,10 @@ const AudioPlayer = () => {
                   <Play />
                 </Button>
               )}
-              <Button variant="link" onClick={handleNext}>
+              <Button variant="link" onClick={nextHandler}>
                 <StepForward />
               </Button>
-              <audio ref={audioRef} src={activeTrack?.audioUrl} />
+              <audio ref={audioRef} src={activeSong?.previewUrl} />
             </div>
           </SongCard>
         </Col>
