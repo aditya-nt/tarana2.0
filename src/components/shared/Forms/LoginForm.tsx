@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormInput from '@/components/base/FormInput';
 import FormButton from '@/components/base/Button';
-import { StyledCard, VStack } from '@/components/shared/AppStyles';
+import { VStack } from '@/components/shared/AppStyles';
 import { styled } from 'styled-components';
 
 interface LoginFormProps {
@@ -48,7 +48,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   });
 
   return (
-    <Card>
+    <StyledCard>
       <Form onSubmit={handleFormSubmit}>
         <VStack.colg1>
           <h3>Sign In</h3>
@@ -71,8 +71,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
           </div>
         </VStack.colg1>
       </Form>
-    </Card>
+    </StyledCard>
   );
 };
+
+const StyledCard = styled(Card)`
+  border: 2px solid ${props => props.theme.borderColor };
+`
 
 export default LoginForm;

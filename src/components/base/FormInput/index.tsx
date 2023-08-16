@@ -1,6 +1,8 @@
+import { Label } from '@/components/base/Typography';
 import { noop } from '@babel/types';
 import React from 'react';
 import { styled } from 'styled-components';
+
 
 interface FormInputProps {
   label: string;
@@ -18,22 +20,18 @@ const InputWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Label = styled.label`
-  margin-bottom: 0.25rem;
-  font-weight: bold;
-`;
-
 const StyledInput = styled.input`
   background: transparent;
   border: none;
   border: 2px solid ${props => props.theme.borderColor};
+  color: ${props => props.theme.textColor};
   padding: 0.5rem;
   transition: all 0.3s ease;
   outline: none;
 
   &:hover {
-    // background: rgb(65, 65, 65);
-    // color: white;
+    background: rgb(65, 65, 65);
+    color: white;
   }
 
   &:focus {

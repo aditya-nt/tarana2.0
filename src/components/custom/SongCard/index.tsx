@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { noop } from 'lodash';
 import { styled } from 'styled-components';
+import Image from '@/components/base/Image';
 
 interface SongCardProps {
   song: Song;
@@ -32,7 +33,7 @@ const SongCardContent = styled.div`
   justify-content: center;
 `;
 
-const SongCardImage = styled.img`
+const SongCardImage = styled(Image)`
   /* Apply styles here based on Img styles */
   margin: 20px 0;
   height: 60px;
