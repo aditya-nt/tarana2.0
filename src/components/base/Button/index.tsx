@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import noop from 'noop-ts';
 import { styled } from 'styled-components';
 import { ThemeContextType } from '@/contexts/ThemeContext';
@@ -8,6 +8,7 @@ interface FormButtonProps {
   variant: 'primary' | 'secondary' | 'success' | 'danger';
   label: string;
   onClick?: () => void;
+  children?: ReactNode;
 }
 
 const Button = styled.button<{ theme: ThemeContextType['themeStyle'] }>`
@@ -25,10 +26,11 @@ const Button = styled.button<{ theme: ThemeContextType['themeStyle'] }>`
   }
 `;
 
-const FormButton: React.FC<FormButtonProps> = ({ type, variant, label, onClick = noop }) => {
+const FormButton: React.FC<FormButtonProps> = ({ type, variant, label, onClick = noop,children }) => {
   return (
     <Button type={type} onClick={onClick}>
       {label}
+      {children}
     </Button>
   );
 };
