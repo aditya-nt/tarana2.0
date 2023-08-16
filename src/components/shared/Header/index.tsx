@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           <Heading3 style={{ marginTop: '0.5rem' }}>Tarana 2.0</Heading3>
         </HStack.rowg1>
         <HStack.rowg1>
-          <ThemeToggler/>
+          <ThemeToggler />
           <AuthStatus header />
         </HStack.rowg1>
       </HStack.fullFlex>

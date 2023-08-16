@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 interface Theme {
   bodyBackgroundColor: string;
@@ -37,14 +37,3 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
   }
 `;
 
-export const Container = styled.div<{ theme: Theme }>`
-  background-color: ${({ theme }) => {
-    return theme.bodyBackgroundColor;
-  }};
-  border: 1px solid ${({ theme }) => theme.borderColor};
-`;
-
-export const Header = styled.div<{ theme: Theme }>`
-  background-color: ${({ theme }) => theme.componentBackgroundColor};
-  border: 1px solid ${({ theme }) => theme.borderColor};
-`;

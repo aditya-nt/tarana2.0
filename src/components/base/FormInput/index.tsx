@@ -3,7 +3,6 @@ import { noop } from '@babel/types';
 import React from 'react';
 import { styled } from 'styled-components';
 
-
 interface FormInputProps {
   label: string;
   type: string;
@@ -23,8 +22,8 @@ const InputWrapper = styled.div`
 const StyledInput = styled.input`
   background: transparent;
   border: none;
-  border: 2px solid ${props => props.theme.borderColor};
-  color: ${props => props.theme.textColor};
+  border: 2px solid ${(props) => props.theme.borderColor};
+  color: ${(props) => props.theme.textColor};
   padding: 0.5rem;
   transition: all 0.3s ease;
   outline: none;
