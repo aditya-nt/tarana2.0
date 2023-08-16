@@ -11,7 +11,7 @@ interface SongCardProps {
 
 function SongInfo({ song, onClick = noop, children }: SongCardProps) {
   return song ? (
-    <SongContainer >
+    <SongContainer>
       <Img src={song.artworkUrl100.replace('100x100', '600x600')} alt={song.trackCensoredName}></Img>
       <H1>{song.trackCensoredName}</H1>
       <H2>{song.artistName}</H2>

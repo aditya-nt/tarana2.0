@@ -1,6 +1,5 @@
+import React, { ReactNode } from 'react';
 import { noop } from 'lodash';
-import { ReactNode } from 'react';
-import { Card } from 'react-bootstrap';
 import { styled } from 'styled-components';
 
 interface SongCardProps {
@@ -51,17 +50,9 @@ const SongCardArtist = styled.h4`
   font-size: 0.7rem;
 `;
 
-const SongCardSkeleton = styled.div`
-  /* You can define skeleton styles here */
-  /* For example, a loading animation or placeholder styles */
-`;
-
 function SongCard({ song, onClick = noop, isActive = false, children }: SongCardProps) {
   return (
-    <StyledSongCard
-      //  isActive={isActive}
-      onClick={onClick}
-    >
+    <StyledSongCard onClick={onClick}>
       <SongCardImage src={song.artworkUrl100} alt={song.trackCensoredName} />
       <SongCardContent>
         <SongCardTitle>{song.trackCensoredName}</SongCardTitle>

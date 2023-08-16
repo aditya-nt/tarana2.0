@@ -1,6 +1,9 @@
 import React, { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSong } from '@/store/songs/SongSlice';
-import SongCard from '@/components/custom/SongCard';
+import { Suspense, lazy } from 'react';
+import Loader from '@/components/base/Loader';
+
+const LazySongCard = lazy(() => import('@/components/custom/SongCard'));
 
 const SongContainer = () => {
   const dispatch = useDispatch();
@@ -9,14 +12,15 @@ const SongContainer = () => {
   return (
     <>
       {songs.map((song, index) => (
-        <SongCard
-          song={song}
-          isActive={song === activeSong}
-          key={index + 1 * Math.random()}
-          onClick={() => {
-            dispatch(setCurrentSong({ currentIndex: index }));
-          }}
-        />
+        <Suspense key={index + 1} fallback={<Loader type="circle" loading={true} />}>
+          <LazySongCard
+            song={song}
+            isActive={song === activeSong}
+            onClick={() => {
+              dispatch(setCurrentSong({ currentIndex: index }));
+            }}
+          />
+        </Suspense>
       ))}
     </>
   );

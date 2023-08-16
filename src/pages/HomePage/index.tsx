@@ -50,11 +50,10 @@ const HomePage: React.FC = () => {
             />
           </div>
           <InfiniteScroll
-            // style={{ height : '600px' }}
             dataLength={songs ? songs.length : 0}
             next={() => fetchNextPage()}
             hasMore={!!hasNextPage}
-            loader={<Loader />}
+            loader={<Loader type="scale" loading={true} />}
           >
             <SongContainer />
           </InfiniteScroll>

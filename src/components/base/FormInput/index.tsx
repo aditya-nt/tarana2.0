@@ -26,7 +26,7 @@ const Label = styled.label`
 const StyledInput = styled.input`
   background: transparent;
   border: none;
-  border: 2px solid rgb(65, 65, 65);
+  border: 2px solid ${props => props.theme.borderColor};
   padding: 0.5rem;
   transition: all 0.3s ease;
   outline: none;
