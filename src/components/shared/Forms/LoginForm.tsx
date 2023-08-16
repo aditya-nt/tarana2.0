@@ -76,7 +76,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
 };
 
 const StyledCard = styled(Card)`
-  border: 2px solid ${props => props.theme.borderColor };
-`
+  border: 2px solid ${(props) => props.theme.borderColor};
+`;
 
 export default LoginForm;

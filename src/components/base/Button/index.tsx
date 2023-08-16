@@ -15,9 +15,11 @@ const Button = styled.button<{ theme: ThemeContextType['themeStyle'] }>`
   background: transparent;
   border: none;
   cursor: pointer;
-  color: ${props => props.theme.textColor};
-  border: 2px solid ${props => { 
-    return props.theme.borderColor}};
+  color: ${(props) => props.theme.textColor};
+  border: 2px solid
+    ${(props) => {
+      return props.theme.borderColor;
+    }};
   padding: 0.5rem;
   transition: all 0.3s ease;
   &:hover {
@@ -26,7 +28,7 @@ const Button = styled.button<{ theme: ThemeContextType['themeStyle'] }>`
   }
 `;
 
-const FormButton: React.FC<FormButtonProps> = ({ type, variant, label, onClick = noop,children }) => {
+const FormButton: React.FC<FormButtonProps> = ({ type, variant, label, onClick = noop, children }) => {
   return (
     <Button type={type} onClick={onClick}>
       {label}

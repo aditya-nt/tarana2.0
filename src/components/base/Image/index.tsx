@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Image = styled.img`
-
   @keyframes inputFocus {
     0% {
       transform: scale(1);
