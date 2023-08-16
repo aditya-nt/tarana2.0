@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Suspense, lazy, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Play, Pause, StepBack, StepForward } from 'lucide-react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import SongInfo from '@/components/custom/SongInfo';
+import Loader from '@/components/base/Loader';
+
+const LazySongInfo = lazy(() => import('@/components/custom/SongInfo'));
 
 const AudioPlayerContainer = styled(Container)`
   padding-top: 20px;
@@ -54,7 +56,9 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
     <AudioPlayerContainer>
       <Row>
         <Col>
-          <SongInfo song={activeSong}></SongInfo>
+          <Suspense fallback={<Loader type="circle" loading={true} />}>
+            <LazySongInfo song={activeSong} />
+          </Suspense>
           <div className="d-flex align-items-center justify-content-center">
             <ControlButton variant="link" onClick={prevHandler} disabled={!activeSong}>
               <StepBack />
