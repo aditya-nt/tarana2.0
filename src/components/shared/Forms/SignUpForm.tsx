@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormInput from '@/components/base/FormInput';
-import FormButton from '@/components/base/Button';
+import FormButton from '@/components/base/FormButton';
 
 interface SignUpFormProps {
   onSubmit: (data: { name: string; email: string; password: string }) => void;

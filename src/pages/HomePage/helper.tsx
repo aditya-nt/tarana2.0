@@ -21,6 +21,7 @@ export const getSongs = async (
     return { data: null, error: 'An error occurred while fetching songs.' };
   }
 };
+
 export const useSongs = (searchTerm: string = DEFAULT_SEARCH) => {
   const [offset, setOffset] = useState<number>(9);
 

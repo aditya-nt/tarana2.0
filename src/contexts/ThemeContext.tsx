@@ -1,5 +1,6 @@
+import { getTheme, storeTheme } from '@/lib/common';
 import { darkTheme, dreamTheme, lightTheme } from '@/styles/globalStyles';
-import React, { createContext, useState, useContext, useMemo } from 'react';
+import React, { createContext, useState, useContext, useMemo, useEffect } from 'react';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 
 export const themes = {
@@ -31,7 +32,8 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(themes.day);
+  const initialTheme = (getTheme() as Theme) || themes.dream;
+  const [theme, setTheme] = useState<Theme>(initialTheme);
 
   const themeStyle = useMemo(() => {
     switch (theme) {
@@ -51,6 +53,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       prevTheme === themes.day ? themes.night : prevTheme === themes.night ? themes.dream : themes.day,
     );
   };
+
+  useEffect(() => {
+    storeTheme(theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, themeStyle }}>
