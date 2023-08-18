@@ -1,12 +1,17 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { noop } from 'lodash';
 import { styled } from 'styled-components';
 import Image from '@/components/base/Image';
+import { Disc3, Pause, PauseIcon, PlayIcon } from 'lucide-react';
+import { Row } from 'react-bootstrap';
+import { truncateText } from '@/lib/common';
 
 interface SongCardProps {
   song: Song;
   isActive?: boolean;
   onClick?: () => void;
+  onTogglePlay: () => void;
+  isPlaying?: boolean;
   children?: ReactNode;
 }
 
@@ -18,6 +23,7 @@ const StyledSongCard = styled.div`
   display: flex;
   transition: all 0.3s ease;
   background-color: 'pink';
+  border-bottom: 1px dotted black;
   &:hover {
     background-color: lightblue;
     transition: all 0.3s ease;
@@ -51,15 +57,33 @@ const SongCardArtist = styled.h4`
   font-size: 0.7rem;
 `;
 
-function SongCard({ song, onClick = noop, isActive = false, children }: SongCardProps) {
+const StyledRow = styled(Row)`
+  align-items: center;
+`;
+
+function SongCard({ song, onClick = noop, isActive = false, isPlaying, onTogglePlay, children }: SongCardProps) {
+  const handleIconClick = (event: React.MouseEvent<SVGElement, MouseEvent>) => {
+    event.stopPropagation();
+    onTogglePlay();
+  };
+
   return (
-    <StyledSongCard onClick={onClick}>
+    <StyledSongCard onClick={onClick} style={{ backgroundColor: isActive ? 'teal' : 'transparent' }}>
       <SongCardImage src={song.artworkUrl100} alt={song.trackCensoredName} />
       <SongCardContent>
-        <SongCardTitle>{song.trackCensoredName}</SongCardTitle>
+        <SongCardTitle>{truncateText(song.trackCensoredName, 50)}</SongCardTitle>
         <SongCardArtist>{song.artistName}</SongCardArtist>
         {children}
       </SongCardContent>
+      {isActive && (
+        <StyledRow>
+          {isPlaying ? (
+            <PauseIcon strokeWidth={2} size={'2rem'} onClick={handleIconClick} />
+          ) : (
+            <PlayIcon strokeWidth={2} size={'2rem'} onClick={handleIconClick} />
+          )}
+        </StyledRow>
+      )}
     </StyledSongCard>
   );
 }

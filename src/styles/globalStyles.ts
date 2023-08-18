@@ -36,4 +36,3 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
     color: ${({ theme }) => theme.textColor};
   }
 `;
-

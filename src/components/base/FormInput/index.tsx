@@ -39,12 +39,17 @@ const StyledInput = styled.input`
   }
 `;
 
-const FormInput: React.FC<FormInputProps> = ({ label, type, placeholder, register, error, onChange = noop }) => {
+const ErrorText = styled.p`
+  color: red;
+  font-size: 0.8rem;
+`;
+
+const FormInput: React.FC<FormInputProps> = ({ label, type, placeholder, register, error, ...rest }) => {
   return (
     <InputWrapper>
-      {label && <Label>{label}</Label>}
-      <StyledInput type={type} {...register} placeholder={placeholder} onChange={onChange} />
-      {error && <p className="text-danger">{error.message}</p>}
+      <Label>{label}</Label>
+      <StyledInput type={type} {...register} placeholder={placeholder} {...rest} />
+      {error && <ErrorText>{error.message}</ErrorText>}
     </InputWrapper>
   );
 };

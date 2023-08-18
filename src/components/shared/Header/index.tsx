@@ -2,22 +2,22 @@ import React from 'react';
 
 import { HStack } from '@/components/shared/AppStyles';
 import AuthStatus from '@/components/custom/AuthStatus';
-import { Disc3 } from 'lucide-react';
+import { RollerCoaster } from 'lucide-react';
 import { styled } from 'styled-components';
 import ThemeToggler from '@/components/custom/ThemeToggler';
 import { Heading3 } from '@/components/base/Typography';
 
-const StyledLogo = styled(Disc3)`
-  animation: rotate 4s linear infinite;
+const StyledLogo = styled(RollerCoaster)`
+  // animation: rotate 4s linear infinite;
 
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  // @keyframes rotate {
+  //   0% {
+  //     transform: rotate(0deg);
+  //   }
+  //   100% {
+  //     transform: rotate(360deg);
+  //   }
+  // }
 `;
 
 const Header: React.FC = () => {

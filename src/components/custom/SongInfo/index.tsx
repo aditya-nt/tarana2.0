@@ -1,5 +1,6 @@
 import Image from '@/components/base/Image';
 import { Heading2, Heading3 } from '@/components/base/Typography';
+import { truncateText } from '@/lib/common';
 import { noop } from 'lodash';
 import { ReactNode } from 'react';
 import { Card } from 'react-bootstrap';
@@ -15,7 +16,7 @@ function SongInfo({ song, onClick = noop, children }: SongCardProps) {
   return song ? (
     <SongContainer>
       <StyledImg src={song.artworkUrl100.replace('100x100', '600x600')} alt={song.trackCensoredName}></StyledImg>
-      <Heading2>{song.trackCensoredName}</Heading2>
+      <Heading2>{truncateText(song.trackCensoredName, 50)}</Heading2>
       <Heading3>{song.artistName}</Heading3>
     </SongContainer>
   ) : (
@@ -31,7 +32,7 @@ const SongContainer = styled.div`
   margin-top: 5vh;
   margin-bottom: 2vh;
   min-height: 50vh;
-  max-height: 60vh;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +40,7 @@ const SongContainer = styled.div`
 `;
 
 const StyledImg = styled(Image)`
-  width: 70%;
+  width: 60%;
   border-radius: 50%;
   @media screen and (max-width: 768px) {
     width: 50%;

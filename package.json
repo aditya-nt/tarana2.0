@@ -18,10 +18,7 @@
   },
   "dependencies": {
     "@craco/craco": "^7.1.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^3.2.0",
-    "@mui/material": "^5.14.4",
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
@@ -38,13 +35,11 @@
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "lucide-react": "^0.264.0",
-    "material-react-toastify": "^2.0.1",
     "noop-ts": "^1.0.6",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.4",
-    "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
@@ -53,7 +48,6 @@
     "styled-components": "^6.0.7",
     "typescript": "^4.9.5",
     "use-debounce": "^9.0.4",
-    "uuid": "^9.0.0",
     "yup": "^1.2.0"
   },
   "devDependencies": {

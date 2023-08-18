@@ -1,27 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Col, Container, Row } from 'react-bootstrap';
 import FormInput from '@/components/base/FormInput';
 import { useSongs } from '@/pages/HomePage/helper';
 import { useDebouncedCallback } from 'use-debounce';
 import SongContainer from '@/containers/SongContainer';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { setSongs } from '@/store/songs/SongSlice';
 import { filterUndefined } from '@/lib/utils/sanitize';
 import { DEFAULT_SEARCH } from '@/lib/constants';
 import PlayerContainer from '@/containers/PlayerContainer';
 import Loader from '@/components/base/Loader';
+import styled from 'styled-components';
+import NoResult from '@/components/custom/NoResult';
+
+const ScrollContainer = styled.div`
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 16px;
+`;
 
 const HomePage: React.FC = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState<string>(DEFAULT_SEARCH);
+  const [page, setPage] = useState<number>(1);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const debouncedSearch = useDebouncedCallback((value: string) => {
     setSearchTerm(value || DEFAULT_SEARCH);
-    // dispatch(setSongs({ songs: [] }));
   }, 700);
 
-  const { fetchNextPage, hasNextPage, songs } = useSongs(searchTerm);
+  const { fetchNextPage, hasNextPage, songs, status, error } = useSongs(searchTerm);
+
+  console.log('status', status);
+  console.log('error', error);
 
   useEffect(() => {
     if (songs) {
@@ -31,8 +42,28 @@ const HomePage: React.FC = () => {
   }, [songs, dispatch]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPage(1);
     debouncedSearch(event.target.value);
   };
+
+  const handleScroll = () => {
+    if (
+      containerRef.current &&
+      hasNextPage &&
+      containerRef.current.scrollTop + containerRef.current.clientHeight >= containerRef.current.scrollHeight - 5
+    ) {
+      fetchNextPage();
+    }
+  };
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.addEventListener('scroll', handleScroll);
+      return () => {
+        containerRef.current?.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [handleScroll]);
 
   return (
     <Container>
@@ -49,14 +80,16 @@ const HomePage: React.FC = () => {
               onChange={handleInputChange}
             />
           </div>
-          <InfiniteScroll
-            dataLength={songs ? songs.length : 0}
-            next={() => fetchNextPage()}
-            hasMore={!!hasNextPage}
-            loader={<Loader type="scale" loading={true} />}
-          >
-            <SongContainer />
-          </InfiniteScroll>
+          <ScrollContainer ref={containerRef}>
+            {status === 'loading' ? (
+              <Loader type="scale" loading={true} />
+            ) : (
+              <>
+                {songs && songs.length > 0 ? <SongContainer /> : status === 'success' ? <NoResult /> : null}
+                {hasNextPage && <Loader type="scale" loading={true} />}
+              </>
+            )}
+          </ScrollContainer>
         </Col>
       </Row>
     </Container>
