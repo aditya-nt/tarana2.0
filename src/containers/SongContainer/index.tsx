@@ -1,5 +1,5 @@
 import React, { useDispatch, useSelector } from 'react-redux';
-import { setCurrentSong } from '@/store/songs/SongSlice';
+import { setCurrentSong, togglePlaying } from '@/store/songs/SongSlice';
 import { Suspense, lazy } from 'react';
 import Loader from '@/components/base/Loader';
 
@@ -7,7 +7,11 @@ const LazySongCard = lazy(() => import('@/components/custom/SongCard'));
 
 const SongContainer = () => {
   const dispatch = useDispatch();
-  const { songs, activeSong } = useSelector((state: { songs: SongsState }) => state.songs);
+  const { songs, activeSong, isPlaying } = useSelector((state: { songs: SongsState }) => state.songs);
+
+  const handleTogglePlay = () => {
+    dispatch(togglePlaying());
+  };
 
   return (
     <>
@@ -16,6 +20,8 @@ const SongContainer = () => {
           <LazySongCard
             song={song}
             isActive={song === activeSong}
+            isPlaying={isPlaying}
+            onTogglePlay={handleTogglePlay}
             onClick={() => {
               dispatch(setCurrentSong({ currentIndex: index }));
             }}
