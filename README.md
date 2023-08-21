@@ -29,3 +29,4 @@ Dev-tools
 2. Prettier
 3. Eslint
 4. Husky
+5. Craco
