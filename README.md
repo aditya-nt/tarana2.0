@@ -22,4 +22,10 @@ Technologies
 4. React Query
 5. React hook forms
 6. React Contexts
-7. Yup 
+7. Yup
+
+Dev-tools
+1. React-Query-devtools
+2. Prettier
+3. Eslint
+4. Husky
