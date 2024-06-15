@@ -1,7 +1,6 @@
 import React, { useDispatch, useSelector } from 'react-redux';
 import { nextSong, previousSong, togglePlaying } from '@/store/songs/SongSlice';
-import { Col, Container, Row } from 'react-bootstrap';
-import AudioPlayer from '@/components/custom/AudioPlayer';
+import PlayerView from '@/views/PlayerView';
 
 const PlayerContainer = () => {
   const dispatch = useDispatch();
@@ -20,19 +19,13 @@ const PlayerContainer = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <AudioPlayer
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            handleNext={handleNext}
-            handlePrevious={handlePrevious}
-            togglePlay={togglePlay}
-          />
-        </Col>
-      </Row>
-    </Container>
+    <PlayerView
+      isPlaying={isPlaying}
+      activeSong={activeSong}
+      handleNext={handleNext}
+      handlePrevious={handlePrevious}
+      togglePlay={togglePlay}
+    />
   );
 };
 
