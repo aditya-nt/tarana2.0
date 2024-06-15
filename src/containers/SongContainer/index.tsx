@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSong, togglePlaying } from '@/store/songs/SongSlice';
-import SongView from '@/view/SongView';// Adjust the import path as per your project structure
+import SongView from '@/views/SongView';// Adjust the import path as per your project structure
  
 const SongContainer = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,10 @@ const SongContainer = () => {
   const handleTogglePlay = () => {
     dispatch(togglePlaying());
   };
-
+  const handleSetCurrentSong = (index: number) => {
+    dispatch(setCurrentSong({ currentIndex: index }));
+    
+  };
   
 
   return (
@@ -19,6 +22,7 @@ const SongContainer = () => {
       activeSong={activeSong}
       isPlaying={isPlaying}
      handleTogglePlay={handleTogglePlay}
+     handleSetCurrentSong={handleSetCurrentSong}
       
     />
   );

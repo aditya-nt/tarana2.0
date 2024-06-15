@@ -12,12 +12,12 @@ interface SongViewProps {
     activeSong: any;
    
     handleTogglePlay: () => void;
-    
+    handleSetCurrentSong: (index: number) => void;
   }
 
-  const SongView: React.FC<SongViewProps> = ({ isPlaying, activeSong,  songs, handleTogglePlay}) => {
+  const SongView: React.FC<SongViewProps> = ({ isPlaying, activeSong,  songs, handleTogglePlay,handleSetCurrentSong}) => {
     
-    const dispatch = useDispatch();
+    
   return (
     <>
       {songs.map((song, index) => (
@@ -27,9 +27,7 @@ interface SongViewProps {
             isActive={song === activeSong}
             isPlaying={isPlaying}
             onTogglePlay={handleTogglePlay}
-            onClick={() => {
-              dispatch(setCurrentSong({ currentIndex: index }));
-            }}
+            onClick={() => handleSetCurrentSong(index)}
           />
         </Suspense>
       ))}
