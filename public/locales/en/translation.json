@@ -1,0 +1,13 @@
+{
+   
+    "sign_in": "Sign In",
+    "email_address": "Email address",
+    "password": "Password",
+    "log_in": "Login",
+    "play_music": "Play the music",
+    "log_out": "Logout",
+     "sign_up": "Sign Up",
+  "name": "Name",
+  "search_songs":"Search Songs",
+  "enter_the_search_item":"Enter the search item"
+  }

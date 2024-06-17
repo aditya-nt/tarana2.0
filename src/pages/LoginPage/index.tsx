@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import LoginForm from '@/components/shared/Forms/LoginForm';
 import { HStack, VStack } from '@/components/shared/AppStyles';
 
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,7 +19,9 @@ const LoginPage = () => {
   };
 
   return (
+   
     <HStack.fullFlex style={{ justifyContent: 'center' }}>
+     
       <LoginForm onSubmit={handleSubmit} />
     </HStack.fullFlex>
   );

@@ -12,6 +12,7 @@ import PlayerContainer from '@/containers/PlayerContainer';
 import Loader from '@/components/base/Loader';
 import styled from 'styled-components';
 import NoResult from '@/components/custom/NoResult';
+import { useTranslation } from 'react-i18next';
 
 const ScrollContainer = styled.div`
   max-height: 70vh;
@@ -20,6 +21,7 @@ const ScrollContainer = styled.div`
 `;
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState<string>(DEFAULT_SEARCH);
   const [page, setPage] = useState<number>(1);
@@ -74,9 +76,9 @@ const HomePage: React.FC = () => {
         <Col lg={7}>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <FormInput
-              label="Search Songs"
+              label={t('search_songs')}
               type="text"
-              placeholder="Enter a search term"
+              placeholder={t('enter_the_search_item')}
               onChange={handleInputChange}
             />
           </div>

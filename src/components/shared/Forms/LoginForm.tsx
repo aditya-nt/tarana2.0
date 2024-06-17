@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { VStack } from '../AppStyles';
 import FormInput from '@/components/base/FormInput';
 import FormButton from '@/components/base/FormButton';
+import { useTranslation } from 'react-i18next';
+
 
 interface LoginFormProps {
   onSubmit: SubmitHandler<{ email: string; password: string }>;
@@ -15,6 +17,7 @@ const schema = yup.object().shape({
   email: yup.string().email('Invalid email format').required('Email is required'),
   password: yup.string().required('Password is required'),
 });
+
 
 const Card = styled.div`
   width: 600px;
@@ -62,6 +65,7 @@ const Form = styled.form`
 // });
 
 const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     register,
@@ -76,11 +80,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
 
   return (
     <StyledCard>
+      
       <Form onSubmit={handleSubmit(handleFormSubmit)}>
         <VStack.colg1>
-          <h3>Sign In</h3>
+        <h3>{t('sign_in')}</h3>
           <FormInput
-            label="Email address"
+           label={t('email_address')}
             type="email"
             placeholder="Email"
             register={register('email')}
@@ -88,14 +93,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
           />
 
           <FormInput
-            label="Password"
+            label={t('password')}
             type="password"
             placeholder="Enter password"
             register={register('password')}
             error={errors.password}
           />
-          <div className="d-grid">
-            <FormButton type="submit" variant="danger" label="Login" />
+          <div className="d-grid">           
+             <FormButton type="submit" variant="danger" label={t('log_in')} />
+          
           </div>
         </VStack.colg1>
       </Form>

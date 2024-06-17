@@ -5,6 +5,7 @@ import { noop } from 'lodash';
 import { ReactNode } from 'react';
 import { Card } from 'react-bootstrap';
 import { styled } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 interface SongCardProps {
   song: Song | null;
@@ -13,6 +14,7 @@ interface SongCardProps {
 }
 
 function SongInfo({ song, onClick = noop, children }: SongCardProps) {
+  const { t } = useTranslation();
   return song ? (
     <SongContainer>
       <StyledImg src={song.artworkUrl100.replace('100x100', '600x600')} alt={song.trackCensoredName}></StyledImg>
@@ -23,7 +25,7 @@ function SongInfo({ song, onClick = noop, children }: SongCardProps) {
     <SongContainer>
       <StyledImg src={'/music-mockup.jpg'} alt={'mock-up'}></StyledImg>
       <Heading2>{'Tarana 2.0'}</Heading2>
-      <Heading3>{'Play the music'}</Heading3>
+      <Heading3>{t('play_music')}</Heading3>
     </SongContainer>
   );
 }
