@@ -40,13 +40,13 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    debug: true, // Set to false in production
+    debug: true, 
     backend: {
       loadPath: '/locales/{{lng}}/translation.json',
     },
     interpolation: {
       escapeValue: false,
     },
-    supportedLngs: ['en', 'fr', 'es', 'de', 'it', 'zh', 'ja'], // Add your supported languages here
+    supportedLngs: ['en', 'fr', 'es', 'de', 'it', 'zh', 'ja'], 
   });
 export { fakeAuthProvider , i18n};

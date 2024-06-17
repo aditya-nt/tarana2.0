@@ -7,7 +7,7 @@ const TranslationButton: React.FC = () => {
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
-    setShowLanguages(false); // Hide language buttons after selection
+    setShowLanguages(false); 
   };
 
   const [showLanguages, setShowLanguages] = useState(false);
