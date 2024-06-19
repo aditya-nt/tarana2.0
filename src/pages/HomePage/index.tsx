@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row ,Button} from 'react-bootstrap';
 import FormInput from '@/components/base/FormInput';
-import { useSongs } from '@/pages/HomePage/helper';
+import { useSongs } from './helper';
 import { useDebouncedCallback } from 'use-debounce';
 import SongContainer from '@/containers/SongContainer';
 import { setSongs } from '@/store/songs/SongSlice';
@@ -13,6 +13,8 @@ import Loader from '@/components/base/Loader';
 import styled from 'styled-components';
 import NoResult from '@/components/custom/NoResult';
 import { useTranslation } from 'react-i18next';
+import { useState,useEffect } from 'react';
+import { Navigate } from 'react-router-dom'; // Import Navigate from react-router-dom
 
 const ScrollContainer = styled.div`
   max-height: 70vh;
@@ -67,11 +69,16 @@ const HomePage: React.FC = () => {
     }
   }, [handleScroll]);
 
+  // Function to navigate to playlist page
+  
   return (
     <Container>
       <Row>
         <Col lg={5}>
           <PlayerContainer />
+         
+           
+          
         </Col>
         <Col lg={7}>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -92,6 +99,7 @@ const HomePage: React.FC = () => {
               </>
             )}
           </ScrollContainer>
+          
         </Col>
       </Row>
     </Container>

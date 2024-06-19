@@ -7,6 +7,10 @@ import SeekBar from './SeekBar';
 import VolumeControl from './VolumeControl';
 import FormButton from '@/components/base/FormButton';
 
+import { toggleLike } from '@/store/songs/SongSlice';
+import { useDispatch,useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+
 const LazySongInfo = lazy(() => import('@/components/custom/SongInfo'));
 
 const AudioPlayerContainer = styled(Container)`
@@ -29,6 +33,8 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
+  const dispatch = useDispatch();
+  const likedSongs = useSelector((state: RootState) => state.songs.likedSongs);
 
   const nextHandler = () => {
     handleNext();
@@ -36,6 +42,12 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
 
   const prevHandler = () => {
     handlePrevious();
+  };
+
+  const handleToggleLike = () => {
+    if (activeSong) {
+      dispatch(toggleLike(activeSong.previewUrl));
+    }
   };
 
   const handleVolumeChange = () => {
@@ -87,7 +99,7 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
   const togglePlayback = () => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play().catch((error) => console.log('Autoplay prevented:', error));
+        audioRef.current.play().catch(error => console.log('Autoplay prevented:', error));
       } else {
         audioRef.current.pause();
       }
@@ -152,6 +164,9 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
               onVolumeChange={handleVolumeChange}
               onVolumeIconClick={handleVolumeIconClick}
             />
+            <Button variant="link" onClick={handleToggleLike}>
+              {likedSongs.some(song => song.previewUrl === activeSong?.previewUrl) ? 'Liked' : 'Like'}
+            </Button>
           </div>
           <audio ref={audioRef} src={activeSong?.previewUrl} />
         </Col>

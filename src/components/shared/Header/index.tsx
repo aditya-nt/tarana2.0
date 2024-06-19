@@ -6,6 +6,7 @@ import { RollerCoaster } from 'lucide-react';
 import { styled } from 'styled-components';
 import ThemeToggler from '@/components/custom/ThemeToggler';
 import { Heading3 } from '@/components/base/Typography';
+import NewPageBtn from '@/components/custom/NewPageBtn';
 
 const StyledLogo = styled(RollerCoaster)`
   // animation: rotate 4s linear infinite;
@@ -31,6 +32,7 @@ const Header: React.FC = () => {
         <HStack.rowg1>
           <ThemeToggler />
           <AuthStatus header />
+          <NewPageBtn/>
         </HStack.rowg1>
       </HStack.fullFlex>
     </header>
