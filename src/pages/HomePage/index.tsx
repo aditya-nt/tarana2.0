@@ -14,7 +14,7 @@ import styled from 'styled-components';
 import NoResult from '@/components/custom/NoResult';
 import { useTranslation } from 'react-i18next';
 import { useState,useEffect } from 'react';
-import { Navigate } from 'react-router-dom'; // Import Navigate from react-router-dom
+import { Navigate } from 'react-router-dom'; 
 
 const ScrollContainer = styled.div`
   max-height: 70vh;
@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
     }
   }, [handleScroll]);
 
-  // Function to navigate to playlist page
+ 
   
   return (
     <Container>
