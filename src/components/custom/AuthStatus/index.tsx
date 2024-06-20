@@ -26,13 +26,13 @@ function AuthStatus({ header = false }: AuthStatusProps) {
 
   const isPlaylistPage = location.pathname === '/playlist';
 
-  // Function to navigate to PlaylistPage or go back
+  
   const navigateToPlaylist = () => {
     if (isPlaylistPage) {
-      // If on PlaylistPage, navigate back to previous page
+     
       navigate(-1);
     } else {
-      // Otherwise, navigate to PlaylistPage
+      
       navigate('/playlist');
     }
   };
@@ -42,14 +42,14 @@ function AuthStatus({ header = false }: AuthStatusProps) {
       <HStack.rowg1>
         <TranslationButton />
         <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
-        {/* <FormButton label={t('go_to_playlist')} type="button" variant="primary" onClick={navigateToPlaylist} /> */}
+        
       </HStack.rowg1>
     ) : (
       <VStack.col>
         <StyledFiller />
         <h1>Gaana.com</h1>
         <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
-        {/* <FormButton label={t('go_to_playlist')} type="button" variant="primary" onClick={navigateToPlaylist} /> */}
+       
       </VStack.col>
     );
   }

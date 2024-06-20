@@ -7,7 +7,7 @@ const LikedSongs: React.FC = () => {
   const likedSongs = useSelector((state: RootState) => state.songs.likedSongs);
 
   const handleTogglePlay = (previewUrl: string) => {
-    // Implement play/pause functionality if needed
+  
     console.log(`Toggled play for song with preview URL: ${previewUrl}`);
   };
 

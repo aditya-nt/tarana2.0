@@ -11,14 +11,14 @@ function NewPageBtn() {
 
   const isPlaylistPage = location.pathname === '/playlist';
 
-  // Function to navigate to PlaylistPage or go back
+  
   const navigateToPlaylist = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault(); // Prevent default anchor behavior
+    event.preventDefault(); 
     if (isPlaylistPage) {
-      // If on PlaylistPage, navigate back to previous page
+      
       navigate(-1);
     } else {
-      // Otherwise, navigate to PlaylistPage
+     
       navigate('/playlist');
     }
   };
