@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { HStack, StyledFiller } from '@/components/shared/AppStyles';
+
 import FormButton from '@/components/base/FormButton';
 import { useTranslation } from 'react-i18next';
 
-function NewPageBtn() {
+function PlaylistBtn() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,14 +27,14 @@ function NewPageBtn() {
     <>
       <Link to={isPlaylistPage ? '#' : '/playlist'} onClick={navigateToPlaylist}>
         <FormButton
-          label={isPlaylistPage ? t('back') : t('go_to_playlist')}
+          label={isPlaylistPage ? t('go_back') : t('go_to_playlist')}
           type="button"
           variant="primary"
         />
       </Link>
-      {/* <StyledFiller /> */}
+     
     </>
   );
 }
 
-export default NewPageBtn;
+export default PlaylistBtn;

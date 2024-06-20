@@ -10,5 +10,9 @@
   "name": "Nombre",
   "search_songs":"Buscar canciones"
   ,
-  "enter_the_search_item":"Ingrese el término de búsqueda"
+  "go_to_playlist": "Página de la lista de reproducción",
+"go_back": "Volver",
+"liked_songs": "Canciones que te gustan",
+"no_liked_songs": "No hay canciones que te gusten",
+"playlist": "Tu lista de reproducción"
   }
