@@ -24,7 +24,7 @@ function NewPageBtn() {
   };
 
   return (
-    <HStack.rowg1>
+    <>
       <Link to={isPlaylistPage ? '#' : '/playlist'} onClick={navigateToPlaylist}>
         <FormButton
           label={isPlaylistPage ? t('back') : t('go_to_playlist')}
@@ -32,8 +32,8 @@ function NewPageBtn() {
           variant="primary"
         />
       </Link>
-      <StyledFiller />
-    </HStack.rowg1>
+      {/* <StyledFiller /> */}
+    </>
   );
 }
 

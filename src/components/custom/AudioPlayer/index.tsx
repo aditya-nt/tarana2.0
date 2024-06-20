@@ -6,6 +6,7 @@ import Loader from '@/components/base/Loader';
 import SeekBar from './SeekBar';
 import VolumeControl from './VolumeControl';
 import FormButton from '@/components/base/FormButton';
+import { FaRegHeart,FaHeart } from "react-icons/fa";
 
 import { toggleLike } from '@/store/songs/SongSlice';
 import { useDispatch,useSelector } from 'react-redux';
@@ -165,7 +166,7 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
               onVolumeIconClick={handleVolumeIconClick}
             />
             <Button variant="link" onClick={handleToggleLike}>
-              {likedSongs.some(song => song.previewUrl === activeSong?.previewUrl) ? 'Liked' : 'Like'}
+              {likedSongs.some(song => song.previewUrl === activeSong?.previewUrl) ? <FaHeart color="black"/> : <FaRegHeart color="black"/>}
             </Button>
           </div>
           <audio ref={audioRef} src={activeSong?.previewUrl} />

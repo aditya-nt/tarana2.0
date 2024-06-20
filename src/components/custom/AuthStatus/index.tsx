@@ -42,14 +42,14 @@ function AuthStatus({ header = false }: AuthStatusProps) {
       <HStack.rowg1>
         <TranslationButton />
         <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
-        
+        {/* <FormButton label={t('go_to_playlist')} type="button" variant="primary" onClick={navigateToPlaylist} /> */}
       </HStack.rowg1>
     ) : (
       <VStack.col>
         <StyledFiller />
         <h1>Gaana.com</h1>
         <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
-       
+        {/* <FormButton label={t('go_to_playlist')} type="button" variant="primary" onClick={navigateToPlaylist} /> */}
       </VStack.col>
     );
   }
@@ -66,7 +66,7 @@ function AuthStatus({ header = false }: AuthStatusProps) {
         <div>
           <StyledFiller />
           <Link to="/player">{t('play_music')}</Link>
-         
+          
         </div>
         
       )}

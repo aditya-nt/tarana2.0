@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import LikedSongs from '@/components/shared/UserPlay';
+import LikedSongs from '@/containers/PlaylistContainer';
 
 
 
@@ -11,7 +11,7 @@ const PlaylistPage: React.FC = () => {
         <Col xs={12} md={6} lg={4}>
           <div className="text-center">
             <h1>Playlist</h1>
-            {/* Render the LikedSongs component here */}
+            
             <LikedSongs />
           </div>
         </Col>
