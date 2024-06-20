@@ -1,0 +1,12 @@
+{
+    "sign_in": "Se connecter",
+    "email_address": "Adresse e-mail",
+    "password": "Mot de passe",
+    "log_in": "Connexion",
+    "play_music": "Jouer la musique",
+    "log_out": "Déconnexion",
+  "sign_up": "S'inscrire",
+  "name": "Nom",
+  "search_songs":"Rechercher des chansons",
+  "enter_the_search_item":"Entrez l'élément de recherche"
+  }

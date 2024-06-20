@@ -1,0 +1,14 @@
+{
+   
+    "sign_in": "Iniciar sesión",
+    "email_address": "Dirección de correo electrónico",
+    "password": "Contraseña",
+    "log_in": "Inicio de sesión",
+    "play_music": "Reproducir música",
+    "log_out": "Cerrar sesión",
+  "sign_up": "Regístrate",
+  "name": "Nombre",
+  "search_songs":"Buscar canciones"
+  ,
+  "enter_the_search_item":"Ingrese el término de búsqueda"
+  }

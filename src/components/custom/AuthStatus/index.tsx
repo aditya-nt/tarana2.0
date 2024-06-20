@@ -1,16 +1,20 @@
-import { useAuth } from '@/contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
-import FormButton from '@/components/base/FormButton';
-import { HStack, StyledFiller, StyledHeading4, StyledHeading5W, VStack } from '@/components/shared/AppStyles';
 import React from 'react';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
+import FormButton from '@/components/base/FormButton';
+import { HStack, StyledFiller, VStack } from '@/components/shared/AppStyles';
+import { useAuth } from '@/contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
+import TranslationButton from '@/components/base/translationButton';
 
 interface AuthStatusProps {
   header?: boolean;
 }
 
 function AuthStatus({ header = false }: AuthStatusProps) {
+  const { t } = useTranslation();
   const { user, signout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = () => {
     navigate('/login');
@@ -20,16 +24,32 @@ function AuthStatus({ header = false }: AuthStatusProps) {
     signout(() => navigate('/'));
   };
 
+  const isPlaylistPage = location.pathname === '/playlist';
+
+  // Function to navigate to PlaylistPage or go back
+  const navigateToPlaylist = () => {
+    if (isPlaylistPage) {
+      // If on PlaylistPage, navigate back to previous page
+      navigate(-1);
+    } else {
+      // Otherwise, navigate to PlaylistPage
+      navigate('/playlist');
+    }
+  };
+
   if (!user) {
     return header ? (
       <HStack.rowg1>
-        <FormButton label="LogIn" type="button" variant="danger" onClick={handleLogin} />
+        <TranslationButton />
+        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
+        
       </HStack.rowg1>
     ) : (
       <VStack.col>
         <StyledFiller />
         <h1>Gaana.com</h1>
-        <FormButton label="LogIn" type="button" variant="danger" onClick={handleLogin} />
+        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
+       
       </VStack.col>
     );
   }
@@ -38,13 +58,17 @@ function AuthStatus({ header = false }: AuthStatusProps) {
     <HStack.rowg1>
       {header ? (
         <>
-          <FormButton label="LogOut" type="button" variant="secondary" onClick={handleLogOut} />
+          <FormButton label={t('log_out')} type="button" variant="secondary" onClick={handleLogOut} />
+          
         </>
+      
       ) : (
         <div>
           <StyledFiller />
-          <Link to="/player">Play Music</Link>
+          <Link to="/player">{t('play_music')}</Link>
+         
         </div>
+        
       )}
     </HStack.rowg1>
   );

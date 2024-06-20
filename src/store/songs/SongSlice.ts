@@ -7,6 +7,7 @@ const initialSongsState: SongsState = {
   activeSong: null,
   isPlaying: false,
   index: 0,
+  likedSongs: []
 };
 
 const songsSlice = createSlice({
@@ -47,9 +48,24 @@ const songsSlice = createSlice({
         state.isPlaying = true;
       }
     },
+    toggleLike(state, action: PayloadAction<string>) {
+      const previewUrl = action.payload;
+      const existingIndex = state.likedSongs.findIndex((song) => song.previewUrl === previewUrl);
+      if (existingIndex !== -1) {
+        // Unlike song if already liked
+        state.likedSongs = state.likedSongs.filter((song) => song.previewUrl !== previewUrl);
+      } else {
+        // Like song if not already liked
+        const songToAdd = state.songs.find((song) => song.previewUrl === previewUrl);
+        if (songToAdd) {
+          state.likedSongs.push(songToAdd);
+        }
+      }
+    },
+  
   },
 });
 
-export const { setSongs, setActiveSong, setPlayingStatus, setCurrentSong, nextSong, previousSong, togglePlaying } =
+export const { setSongs, setActiveSong, setPlayingStatus, setCurrentSong, nextSong, previousSong, togglePlaying,toggleLike } =
   songsSlice.actions;
 export default songsSlice.reducer;

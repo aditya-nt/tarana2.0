@@ -18,6 +18,7 @@ declare interface SongsState {
   activeSong: Song | null;
   isPlaying: boolean;
   index: number;
+  likedSongs: Song[];
 }
 
 declare interface Track {

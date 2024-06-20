@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 
 interface FormButtonProps {
   type?: 'submit' | 'button';
-  variant: 'primary' | 'secondary' | 'success' | 'danger' | 'link';
+  variant ?: 'primary' | 'secondary' | 'success' | 'danger' | 'link';
   label?: string;
   onClick?: () => void;
   onMouseEnter?: () => void;
