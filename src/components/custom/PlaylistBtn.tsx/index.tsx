@@ -12,8 +12,8 @@ function PlaylistBtn() {
   const isPlaylistPage = location.pathname === '/playlist';
 
   
-  const navigateToPlaylist = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault(); 
+  const navigateToPlaylist = () => {
+   
     if (isPlaylistPage) {
       
       navigate(-1);
@@ -22,16 +22,14 @@ function PlaylistBtn() {
       navigate('/playlist');
     }
   };
-
   return (
-    <>
-      <Link to={isPlaylistPage ? '#' : '/playlist'} onClick={navigateToPlaylist}>
+    <>  
         <FormButton
+        onClick={navigateToPlaylist}
           label={isPlaylistPage ? t('go_back') : t('go_to_playlist')}
           type="button"
           variant="primary"
         />
-      </Link>
      
     </>
   );

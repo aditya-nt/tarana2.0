@@ -2,10 +2,10 @@ import React from 'react';
 import { ReactNode } from 'react';
 import { noop } from 'lodash';
 import styled from 'styled-components';
-import Image from '@/components/base/Image';
+import Image from '../../base/Image';
 import { PauseIcon, PlayIcon } from 'lucide-react';
 import { Row } from 'react-bootstrap';
-import { truncateText } from '@/lib/common';
+import { truncateText } from '../../../lib/common';
 
 interface Song {
   artistName: string;

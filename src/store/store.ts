@@ -1,7 +1,7 @@
 // store/store.ts
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
-import rootReducer from '@/store/rootReducer';
+import rootReducer from '../store/rootReducer';
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

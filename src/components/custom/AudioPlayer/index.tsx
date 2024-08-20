@@ -2,17 +2,17 @@ import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Play, Pause, StepBack, StepForward, VolumeX, Volume2, Volume1 } from 'lucide-react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
-import Loader from '@/components/base/Loader';
+import Loader from '../../../components/base/Loader';
 import SeekBar from './SeekBar';
 import VolumeControl from './VolumeControl';
-import FormButton from '@/components/base/FormButton';
+import FormButton from '../../../components/base/FormButton';
 import { FaRegHeart,FaHeart } from "react-icons/fa";
 
-import { toggleLike } from '@/store/songs/SongSlice';
+import { toggleLike } from '../../../store/songs/SongSlice';
 import { useDispatch,useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { RootState } from '../../../store/store';
 
-const LazySongInfo = lazy(() => import('@/components/custom/SongInfo'));
+const LazySongInfo = lazy(() => import('../../../components/custom/SongInfo'));
 
 const AudioPlayerContainer = styled(Container)`
   padding-top: 20px;
@@ -144,19 +144,19 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
           <div className="d-flex align-items-center justify-content-center">
             <div style={{ width: '60px', height: '50px', backgroundColor: 'transparent' }}></div>{' '}
             {/* Transparent dummy div */}
-            <FormButton variant="link" onClick={prevHandler} disabled={!activeSong}>
+            <FormButton variant="link" onClick={prevHandler} disabled={!activeSong} data-testid="prev">
               <StepBack />
             </FormButton>
             {isPlaying ? (
-              <FormButton variant="link" onClick={togglePlay} disabled={!activeSong}>
+              <FormButton variant="link" onClick={togglePlay} disabled={!activeSong} data-testid="pause">
                 <Pause />
               </FormButton>
             ) : (
-              <FormButton variant="link" onClick={togglePlay} disabled={!activeSong}>
+              <FormButton variant="link" onClick={togglePlay} disabled={!activeSong} data-testid="play">
                 <Play />
               </FormButton>
             )}
-            <FormButton variant="link" onClick={nextHandler} disabled={!activeSong}>
+            <FormButton variant="link" onClick={nextHandler} disabled={!activeSong} data-testid="next">
               <StepForward />
             </FormButton>
             <VolumeControl
@@ -165,7 +165,7 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
               onVolumeChange={handleVolumeChange}
               onVolumeIconClick={handleVolumeIconClick}
             />
-            <Button variant="link" onClick={handleToggleLike}>
+            <Button variant="link" onClick={handleToggleLike} data-testid="like">
               {likedSongs.some(song => song.previewUrl === activeSong?.previewUrl) ? <FaHeart color="black"/> : <FaRegHeart color="black"/>}
             </Button>
           </div>

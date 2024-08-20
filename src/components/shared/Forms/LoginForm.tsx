@@ -4,8 +4,10 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
 import { VStack } from '../AppStyles';
-import FormInput from '@/components/base/FormInput';
-import FormButton from '@/components/base/FormButton';
+import FormButton from '../../base/FormButton';
+import FormInput from '../../base/FormInput';
+
+
 import { useTranslation } from 'react-i18next';
 
 

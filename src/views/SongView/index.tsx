@@ -1,10 +1,8 @@
 import React, { Suspense, lazy } from 'react';
-import Loader from '@/components/base/Loader';
-import { useDispatch } from 'react-redux';
-import { setCurrentSong } from '@/store/songs/SongSlice';
-import { togglePlaying } from '@/store/songs/SongSlice';
+import Loader from '../../components/base/Loader';
 
-const LazySongCard = lazy(() => import('@/components/custom/SongCard'));
+
+const LazySongCard = lazy(() => import('../../components/custom/SongCard'));
 
 interface SongViewProps {
     songs: any[];

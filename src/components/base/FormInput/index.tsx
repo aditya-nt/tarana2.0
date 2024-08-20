@@ -1,4 +1,4 @@
-import { Label } from '@/components/base/Typography';
+import { Label } from '../../../components/base/Typography';
 import { noop } from '@babel/types';
 import React from 'react';
 import { styled } from 'styled-components';
@@ -47,8 +47,8 @@ const ErrorText = styled.p`
 const FormInput: React.FC<FormInputProps> = ({ label, type, placeholder, register, error, ...rest }) => {
   return (
     <InputWrapper>
-      <Label>{label}</Label>
-      <StyledInput type={type} {...register} placeholder={placeholder} {...rest} />
+      <Label htmlFor={label}>{label}</Label>
+      <StyledInput id={label} type={type} {...register} placeholder={placeholder} {...rest} />
       {error && <ErrorText>{error.message}</ErrorText>}
     </InputWrapper>
   );

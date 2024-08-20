@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useNavigate,useLocation } from 'react-router-dom';
-import FormButton from '@/components/base/FormButton';
-import { HStack, StyledFiller, VStack } from '@/components/shared/AppStyles';
-import { useAuth } from '@/contexts/AuthContext';
+import FormButton from '../../../components/base/FormButton';
+import { HStack, StyledFiller, VStack } from '../../../components/shared/AppStyles';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
-import TranslationButton from '@/components/base/translationButton';
+import TranslationButton from '../TranslationButton';
 
 interface AuthStatusProps {
   header?: boolean;
@@ -40,15 +40,16 @@ function AuthStatus({ header = false }: AuthStatusProps) {
   if (!user) {
     return header ? (
       <HStack.rowg1>
-        <TranslationButton />
-        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
+       
+       <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} data-testid="login" />
+
         
       </HStack.rowg1>
     ) : (
       <VStack.col>
         <StyledFiller />
         <h1>Gaana.com</h1>
-        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} />
+        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin}/>
        
       </VStack.col>
     );
@@ -58,7 +59,7 @@ function AuthStatus({ header = false }: AuthStatusProps) {
     <HStack.rowg1>
       {header ? (
         <>
-          <FormButton label={t('log_out')} type="button" variant="secondary" onClick={handleLogOut} />
+         <FormButton label={t('log_out')} type="button" variant="secondary" onClick={handleLogOut} data-testid="logout" />
           
         </>
       

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentSong, togglePlaying } from '@/store/songs/SongSlice';
-import SongView from '@/views/SongView';// Adjust the import path as per your project structure
+import { setCurrentSong, togglePlaying } from '../../store/songs/SongSlice';
+import SongView from '../../views/SongView';
  
 const SongContainer = () => {
   const dispatch = useDispatch();

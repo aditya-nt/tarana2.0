@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { HStack } from '@/components/shared/AppStyles';
 import AuthStatus from '@/components/custom/AuthStatus';
 import { RollerCoaster } from 'lucide-react';
@@ -7,6 +6,7 @@ import { styled } from 'styled-components';
 import ThemeToggler from '@/components/custom/ThemeToggler';
 import { Heading3 } from '@/components/base/Typography';
 import PlaylistBtn from '@/components/custom/PlaylistBtn.tsx';
+import TranslationButton from '@/components/custom/TranslationButton';
 const StyledLogo = styled(RollerCoaster)`
   // animation: rotate 4s linear infinite;
 
@@ -30,6 +30,7 @@ const Header: React.FC = () => {
         </HStack.rowg1>
         <HStack.rowg1 >
           <ThemeToggler />
+          <TranslationButton />
           <AuthStatus header />
           <PlaylistBtn/>
         </HStack.rowg1>

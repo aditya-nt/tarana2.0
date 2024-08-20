@@ -12,6 +12,7 @@ interface FormButtonProps {
   children?: ReactNode;
   disabled?: boolean;
   fontSize?: string;
+ 
 }
 
 const Button = styled.button`
@@ -41,6 +42,7 @@ const FormButton: React.FC<FormButtonProps> = ({
   label = '',
   onClick = noop,
   children,
+ 
   ...rest // Collecting remaining props using the spread operator
 }) => {
   const ButtonComponent = variant === 'link' ? ControlButton : Button;

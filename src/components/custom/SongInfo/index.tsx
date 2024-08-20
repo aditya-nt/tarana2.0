@@ -1,6 +1,6 @@
-import Image from '@/components/base/Image';
-import { Heading2, Heading3 } from '@/components/base/Typography';
-import { truncateText } from '@/lib/common';
+import Image from '../../../components/base/Image';
+import { Heading2, Heading3 } from '../../../components/base/Typography';
+import { truncateText } from '../../../lib/common';
 import { noop } from 'lodash';
 import { ReactNode } from 'react';
 import { Card } from 'react-bootstrap';
