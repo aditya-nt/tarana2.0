@@ -60,8 +60,8 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.6",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9",
     "@types/jest": "^29.5.12",
     "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.197",
