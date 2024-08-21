@@ -100,7 +100,7 @@ const AudioPlayer = ({ isPlaying, activeSong, handleNext, handlePrevious, toggle
   const togglePlayback = () => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play().catch(error => console.log('Autoplay prevented:', error));
+        audioRef.current.play().catch(error => console.log('Autoplay prevent:', error));
       } else {
         audioRef.current.pause();
       }

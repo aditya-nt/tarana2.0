@@ -1,12 +1,10 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent,screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AudioPlayer from '.';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { toggleLike } from '../../../store/songs/SongSlice';
 import { AnyAction } from 'redux';
-
 
 interface Song {
   previewUrl: string;
@@ -63,29 +61,6 @@ describe('AudioPlayer Component', () => {
       </Provider>
     );
   });
-  
-
-  
-
-//   test('plays and pauses the song', () => {
-   
-//     const mockTogglePlay = jest.fn();
-//     render(
-//       <Provider store={store}>
-//         <AudioPlayer
-//           isPlaying={true}
-//           activeSong={activeSong}
-//           handleNext={handleNextMock}
-//           handlePrevious={handlePreviousMock}
-//           togglePlay={togglePlayMock}
-//         />
-//       </Provider>
-//     );
-//   const playButton =screen.getByTestId('play');
-//   expect(playButton).toBeInTheDocument();
-//   fireEvent.click(playButton);
-//   expect(mockTogglePlay).toHaveBeenCalledTimes(1);
-// });
   
 
   test('handles next and previous actions', () => {
