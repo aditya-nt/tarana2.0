@@ -26,6 +26,10 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.32.6",
+    "@testing-library/dom": "^7.30.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.14",
@@ -60,8 +64,6 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^10.4.9",
     "@types/jest": "^29.5.12",
     "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.197",
