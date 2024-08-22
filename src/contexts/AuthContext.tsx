@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { fakeAuthProvider } from '@/lib/utils/auth';
+import { fakeAuthProvider } from '../lib/utils/auth';
 
 interface AuthContextType {
   user: string | null;

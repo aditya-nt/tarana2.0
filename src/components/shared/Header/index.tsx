@@ -1,13 +1,12 @@
 import React from 'react';
-
 import { HStack } from '@/components/shared/AppStyles';
 import AuthStatus from '@/components/custom/AuthStatus';
 import { RollerCoaster } from 'lucide-react';
 import { styled } from 'styled-components';
 import ThemeToggler from '@/components/custom/ThemeToggler';
 import { Heading3 } from '@/components/base/Typography';
-import NewPageBtn from '@/components/custom/NewPageBtn';
-
+import PlaylistBtn from '@/components/custom/PlaylistBtn.tsx';
+import TranslationButton from '@/components/custom/TranslationButton';
 const StyledLogo = styled(RollerCoaster)`
   // animation: rotate 4s linear infinite;
 
@@ -27,12 +26,13 @@ const Header: React.FC = () => {
       <HStack.fullFlex style={{ height: '100px', alignItems: 'center' }}>
         <HStack.rowg1 style={{ alignItems: 'center' }}>
           <StyledLogo size={'40px'} strokeWidth={1.5}></StyledLogo>
-          <Heading3 style={{ marginTop: '0.5rem' }}>Tarana 2.0</Heading3>
+          <Heading3 style={{ marginTop: '0.5 rem' }}>Tarana 2.0</Heading3>
         </HStack.rowg1>
-        <HStack.rowg1>
+        <HStack.rowg1 >
           <ThemeToggler />
+          <TranslationButton />
           <AuthStatus header />
-          <NewPageBtn/>
+          <PlaylistBtn/>
         </HStack.rowg1>
       </HStack.fullFlex>
     </header>

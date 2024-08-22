@@ -3,10 +3,12 @@ import { useForm } from 'react-hook-form';
 import { Card } from 'react-bootstrap';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import FormInput from '@/components/base/FormInput';
-import FormButton from '@/components/base/FormButton';
+
+import FormButton from '../../base/FormButton';
+import FormInput from '../../base/FormInput';
+
 import { useTranslation } from 'react-i18next';
-import TranslationButton from '@/components/base/translationButton';
+import TranslationButton from '@/components/custom/TranslationButton';
 
 interface SignUpFormProps {
   onSubmit: (data: { name: string; email: string; password: string }) => void;
@@ -34,7 +36,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
 
   return (
     <Card>
-      <TranslationButton /> 
+      {/* <TranslationButton />  */}
       <form onSubmit={handleFormSubmit}>
       <h3>{t('sign_up')}</h3>
         <FormInput

@@ -10,5 +10,9 @@
   "name": "Name",
   "search_songs":"Search Songs",
   "enter_the_search_item":"Enter the search item",
-  "go_to_playlist":"Playlist page"
+  "go_to_playlist":"Playlist page",
+  "go_back":"Go Back",
+  "liked_songs":"Liked Songs",
+  "no_liked_songs":"No Liked Songs",
+  "playlist":"Your Playlist"
   }

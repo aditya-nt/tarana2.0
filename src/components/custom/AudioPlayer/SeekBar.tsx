@@ -1,4 +1,4 @@
-import { Paragraph } from '@/components/base/Typography';
+import { Paragraph } from '../../../components/base/Typography';
 import React from 'react';
 import { Row } from 'react-bootstrap';
 

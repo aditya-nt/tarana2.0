@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import FormButton from '../FormButton';
+import FormButton from '../../base/FormButton';
 
 const TranslationButton: React.FC = () => {
   const { i18n } = useTranslation();

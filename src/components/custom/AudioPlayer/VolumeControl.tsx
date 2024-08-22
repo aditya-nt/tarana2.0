@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { VolumeX, Volume1, Volume2 } from 'lucide-react';
-import FormButton from '@/components/base/FormButton';
+import FormButton from '../../../components/base/FormButton';
 
 interface VolumeControlProps {
   volume: number;
