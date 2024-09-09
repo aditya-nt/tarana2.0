@@ -1,5 +1,5 @@
-import { getTheme, storeTheme } from '@/lib/common';
-import { darkTheme, dreamTheme, lightTheme } from '@/styles/globalStyles';
+import { getTheme, storeTheme } from '../lib/common';
+import { darkTheme, dreamTheme, lightTheme } from '../styles/globalStyles';
 import React, { createContext, useState, useContext, useMemo, useEffect } from 'react';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 

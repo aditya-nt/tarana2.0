@@ -47,6 +47,6 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    supportedLngs: ['en', 'fr', 'es', 'de', 'it', 'zh', 'ja'], 
+    supportedLngs: ['en','fr', 'es', 'de', 'it', 'zh', 'ja'], 
   });
 export { fakeAuthProvider , i18n};

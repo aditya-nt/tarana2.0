@@ -49,7 +49,7 @@ function AuthStatus({ header = false }: AuthStatusProps) {
       <VStack.col>
         <StyledFiller />
         <h1>Gaana.com</h1>
-        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin}/>
+        <FormButton label={t('log_in')} type="button" variant="danger" onClick={handleLogin} data-testid="login"/>
        
       </VStack.col>
     );
