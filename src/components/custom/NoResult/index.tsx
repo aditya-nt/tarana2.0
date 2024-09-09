@@ -1,4 +1,4 @@
-import { Paragraph } from '@/components/base/Typography';
+import { Paragraph } from '../../../components/base/Typography';
 import { BoomBox } from 'lucide-react';
 import React from 'react';
 import styled from 'styled-components';

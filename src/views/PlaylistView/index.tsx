@@ -1,5 +1,5 @@
 import React from 'react';
-import SongCard from '@/components/custom/SongCard';
+import SongCard from '../../components/custom/SongCard';
 import { useTranslation } from 'react-i18next';
 
 interface PlaylistViewProps {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import AudioPlayer from '@/components/custom/AudioPlayer';
+import AudioPlayer from '../../components/custom/AudioPlayer';
 
 interface PlayerViewProps {
   isPlaying: boolean;

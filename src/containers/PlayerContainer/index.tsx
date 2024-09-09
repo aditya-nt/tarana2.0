@@ -1,6 +1,6 @@
 import React, { useDispatch, useSelector } from 'react-redux';
-import { nextSong, previousSong, togglePlaying } from '@/store/songs/SongSlice';
-import PlayerView from '@/views/PlayerView';
+import { nextSong, previousSong, togglePlaying } from '../../store/songs/SongSlice';
+import PlayerView from '../../views/PlayerView';
 
 const PlayerContainer = () => {
   const dispatch = useDispatch();

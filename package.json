@@ -9,7 +9,7 @@
     "generator:dev": "nodemon server/generator.js",
     "start": "craco start",
     "build": "craco build",
-    "test": "jest",
+   "test": "jest --coverage",
     "eject": "craco eject",
     "format": "npx prettier --write .",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",

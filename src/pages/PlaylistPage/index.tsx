@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import PlaylistContainer from '@/containers/PlaylistContainer';
+import PlaylistContainer from '../../containers/PlaylistContainer';
 import { useTranslation } from 'react-i18next';
 
 

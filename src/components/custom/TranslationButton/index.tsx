@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import FormButton from '../../base/FormButton';
-
+import FormButton from '../../../components/base/FormButton';
 const TranslationButton: React.FC = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     setShowLanguages(false); 
+    setShowLanguages(false); 
   };
 
   const [showLanguages, setShowLanguages] = useState(false);
-
   return (
     <div>
       <FormButton label="Select Language" onClick={() => setShowLanguages(!showLanguages)} />
-
       {showLanguages && (
         <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '10px' }}>
           <FormButton label="English" onClick={() => changeLanguage('en')} />
@@ -26,5 +24,4 @@ const TranslationButton: React.FC = () => {
     </div>
   );
 };
-
 export default TranslationButton;

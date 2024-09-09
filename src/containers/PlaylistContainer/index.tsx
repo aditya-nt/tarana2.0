@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
-import PlaylistView from '@/views/PlaylistView';
+import { RootState } from '../../store/store';
+import PlaylistView from '../../views/PlaylistView';
 
 
 const PlaylistContainer: React.FC = () => {

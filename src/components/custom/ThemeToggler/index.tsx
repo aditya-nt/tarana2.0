@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { themes, useThemeContext } from '@/contexts/ThemeContext';
+import { themes, useThemeContext } from '../../../contexts/ThemeContext';
 import { Sun, Moon, Sparkles } from 'lucide-react';
-import FormButton from '@/components/base/FormButton';
+import FormButton from '../../../components/base/FormButton';
 
 const ButtonContainer = styled.div`
   display: flex;
